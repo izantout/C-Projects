@@ -28,7 +28,7 @@ IE = IE_EA__DISABLED | IE_EX0__DISABLED | IE_EX1__DISABLED
 
 main(void)
 {
-unsigned char x,y,s;
+unsigned char x,y,s,z;
 	unsigned char chng;
 
 InitDevice();
@@ -49,7 +49,8 @@ if(~P0 & 0x04){
 	}else{
 		for (x = 0; x < 0xFF; x++){
 			for(y = 0; y < 0xFF; y++){
-				}}
+				for(z=0;z<0x01;z++){
+				}}}
 		}
 	}
 for (s=0;s<7;s++){
@@ -60,12 +61,13 @@ for (s=0;s<7;s++){
 if(~P0 & 0x04){
 		
 		for (x = 0; x < 0xFF; x++){
-			for(y = 0; y < 0x96; y++){
+			for(y = 0; y < 0x96; y++){			
 				}}
 	}else{
 		for (x = 0; x < 0xFF; x++){
 			for(y = 0; y < 0xFF; y++){
-				}}
+				for(z=0;z<0x01;z++){
+				}}}
 		}
 	}}
 
