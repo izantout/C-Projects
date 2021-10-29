@@ -29,106 +29,80 @@ IE = IE_EA__DISABLED | IE_EX0__DISABLED | IE_EX1__DISABLED
 
 main(void)
 {
-unsigned char x,s;
-	unsigned char chng;
+  unsigned char s,x;
+	unsigned char chng, count;
 
 InitDevice();
-P0 = P0 | (0x01 << 2); //initializing P0.2(button 0) to be 1 ... open
+//P0 = P0 | (0x01 << 2); //initializing P0.2(button 0) to be 1 ... open
 TMOD = 0x01; //Timer 0 is in 16bit Mode
-TH0 = 0x00; // Initializing TH0
+TL0 = 0x00; // Initializing TH0
 															// when Overflow happens 71ms occure
-TL0 = 0x00; // Initializing TL0
-TCON = TCON | (0x01 <<4); //TR0 = 1 starting Timer 0 
+TH0 = 0x00; // Initializing TL0
+TCON = TCON | (0x01 << 4); //TR0 = 1 starting Timer 0 
+P1 = 0x00;
 chng = 0x01;
 	
-while(1) //Infinite while loop, i.e. Superloop
-{
-	if (~(P0 = P0 & (0x01 << 2))) // if button is pressed we need 0.5s per change
-		{ 					
-				for (s=0;s<7;s++)
-				{
-						for (x=0;x<8;x++) // Iterate 7 times to result in 497 milliseconds or around 0.5s
-						{
-							if (TCON & 0x01 << 5) // Check if TF0 = 1 ... If 1 Overflow happened. 
-							{
-									chng = chng << 1; // Left Shift
-									P1 = ~chng;
-									TCON = TCON &~(0x01 << 4); // Stopping the timer TR0 = 0
-									TCON = TCON &~(0x01 << 5); // Clearing the flag TF0 = 0
-									TCON = TCON | (0x01 << 4); // Start the timer again
-							}
-						
-						
-							else
-							{
-								chng = chng; // Keeping the current LED ON
-							}
-						}
-				}
-				
-				for (s=0;s<7;s++)
-				{
-						for (x=0;x<8;x++)
-					{
-							if (TCON & 0x01 << 5) // Check if TF0 = 1 ... If 1 Overflow happened. 
-							{
-									chng = chng >> 1; // Right Shift
-									P1 = ~chng;
-									TCON = TCON &~(0x01 << 4); // Stopping the timer TR0 = 0
-									TCON = TCON &~(0x01 << 5); // Clearing the flag TF0 = 0
-									TCON = TCON | (0x01 << 4); // Start the timer again
-							}
-					
-						
-							else
-							{
-								chng = chng; // Keeping the current LED ON
-							}
-					}	
-				}				
-
-		}
-	else
+	while(1) //Infinite while loop, i.e. Superloop
+	{
+		for (s=0;s<7;s++)
 		{
- 
-				for (s=0;s<7;s++)
-				{
-						if (TCON & 0x01 << 5) // Check if TF0 = 1 ... If 1 Overflow happened. 
-						{
-								chng = chng << 1; // Left Shift
-								P1 = ~chng;
-								TCON = TCON &~(0x01 << 4); // Stopping the timer TR0 = 0
-								TCON = TCON &~(0x01 << 5); // Clearing the flag TF0 = 0
-								TCON = TCON | (0x01 << 4); // Start the timer again
-						}
-						
-						else
-						{
-							chng = chng; // Keeping the current LED ON
-						}
-						
+			if (TCON & (0x01 << 5)) // Check if TF0 = 1 ... If 1 Overflow happened.
+			{
+				TCON = TCON &~(0x01 << 4); // Stopping the timer TR0 = 0
+				TL0 = 0x00;
+				TH0 = 0x00;
+				TCON = TCON &~(0x01 << 5); // Clearing the flag TF0 = 0
+				TCON = TCON | (0x01 << 4); // Start the timer again
+				count = count+1;
+			}
+			if (~P0 & 0x04) // if button is pushed
+			{
+				if (count == 2)
+				{ 
+					chng = chng<<1; //Left shift
+					P1 = ~chng;
+					count = 0; //reset count
 				}
-				
-				for (s=0;s<7;s++)
+			}
+			else
+			{
+				if (count == 9) // Button is not pushed
 				{
-						if (TCON & 0x01 << 5) // Check if TF0 = 1 ... If 1 Overflow happened. 
-						{
-								chng = chng >> 1; // Right Shift
-								P1 = ~chng;
-								TCON = TCON &~(0x01 << 4); // Stopping the timer TR0 = 0
-								TCON = TCON &~(0x01 << 5); // Clearing the flag TF0 = 0
-								TCON = TCON | (0x01 << 4); // Start the timer again
-						}
-						
-						else
-						{
-							chng = chng; // Keeping the current LED ON
-						}
-						
+					chng = chng<<1; //Left shift
+					P1 = ~chng;
+					count = 0; //reset count
 				}
-				
+			}
 		}
-		
-}
-
+			for (x=0;x<7;x++)
+		{
+			if (TCON & (0x01 << 5)) // Check if TF0 = 1 ... If 1 Overflow happened.
+			{
+				TCON = TCON &~(0x01 << 4); // Stopping the timer TR0 = 0
+				TL0 = 0x00;
+				TH0 = 0x00;
+				TCON = TCON &~(0x01 << 5); // Clearing the flag TF0 = 0
+				TCON = TCON | (0x01 << 4); // Start the timer again
+				count = count+1;
+			}
+			if (~P0 & 0x04) // if button is pushed
+			{
+				if (count == 2)
+				{ 
+					chng = chng>>1; //Right shift
+					P1 = ~chng;
+					count = 0; //reset count
+				}
+			}
+			else
+			{
+				if (count == 9) // Button is not pushed
+				{
+					chng = chng>>1; //Right shift
+					P1 = ~chng;
+					count = 0; //reset count
+				}
+			}
+		}
+	}
 }
