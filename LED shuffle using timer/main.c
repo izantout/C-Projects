@@ -29,7 +29,7 @@ IE = IE_EA__DISABLED | IE_EX0__DISABLED | IE_EX1__DISABLED
 
 main(void)
 {
-  unsigned char s;
+  unsigned char s,x;
 	unsigned char chng, count;
 
 InitDevice();
@@ -41,6 +41,7 @@ TH0 = 0x00; // Initializing TL0
 TCON = TCON | (0x01 << 4); //TR0 = 1 starting Timer 0 
 chng = 0x01;
 count = 0;
+x=7;
 	
 	while(1) //Infinite while loop, i.e. Superloop
 	{
@@ -62,6 +63,7 @@ count = 0;
 					chng = chng << 1; //Left shift
 					P1 = ~chng;
 					count = 0; //reset count
+					x = x-1;
 				}
 				else
 				{
@@ -76,53 +78,57 @@ count = 0;
 					chng = chng << 1; //Left shift
 					P1 = ~chng;
 					count = 0; //reset count
+					x = x-1;
 				}
 				else
 				{
 					chng = chng;
 					P1 = ~chng;
 				}
-			}
-		}		
-		for (s=0;s<7;s++)
-		{
-			if (TCON & (0x01 << 5)) // Check if TF0 = 1 ... If 1 Overflow happened.
+			}	
+			if (x == 0)
 			{
-				TCON = TCON &~(0x01 << 4); // Stopping the timer TR0 = 0
-				TL0 = 0x00;
-				TH0 = 0x00;
-				TCON = TCON &~(0x01 << 5); // Clearing the flag TF0 = 0
-				TCON = TCON | (0x01 << 4); // Start the timer again
-				count = count+1;
-			}
-			if (~P0 & 0x04) // if button is pushed
-			{
-				if (count == 2)
-				{ 
-					chng = chng >> 1; //Right shift
-					P1 = ~chng;
-					count = 0; //reset count
-				}
-				else
+				for (s=0;x<7;s++)
 				{
-					chng = chng;
-					P1 = ~chng;
-				}
-			}
-			else
-			{
-				if (count == 5) // Button is not pushed
-				{
-					chng = chng >> 1; //Right shift
-					P1 = ~chng;
-					count = 0; //reset count
-				}
-				else
-				{
-					chng = chng;
-					P1 = ~chng;
-				}
-			}
+					if (TCON & (0x01 << 5)) // Check if TF0 = 1 ... If 1 Overflow happened.
+					{
+						TCON = TCON &~(0x01 << 4); // Stopping the timer TR0 = 0
+						TL0 = 0x00;
+						TH0 = 0x00;
+						TCON = TCON &~(0x01 << 5); // Clearing the flag TF0 = 0
+						TCON = TCON | (0x01 << 4); // Start the timer again
+						count = count+1;
+					}
+					if (~P0 & 0x04) // if button is pushed
+					{
+						if (count == 2)
+						{ 
+							chng = chng >> 1; //Right shift
+							P1 = ~chng;
+							count = 0; //reset count
+						}
+						else
+						{
+							chng = chng;
+							P1 = ~chng;
+						}
+					}
+					else
+					{
+						if (count == 5) // Button is not pushed
+						{
+							chng = chng >> 1; //Right shift
+							P1 = ~chng;
+							count = 0; //reset count
+						}
+						else
+						{
+							chng = chng;
+							P1 = ~chng;
+						}
+					}
+				}	
+			}	
 		}	
 	}
 }
