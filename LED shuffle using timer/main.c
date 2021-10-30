@@ -29,7 +29,7 @@ IE = IE_EA__DISABLED | IE_EX0__DISABLED | IE_EX1__DISABLED
 
 main(void)
 {
-  unsigned char s,x;
+  unsigned char s;
 	unsigned char chng, count;
 
 InitDevice();
@@ -39,8 +39,8 @@ TL0 = 0x00; // Initializing TH0
 															// when Overflow happens 71ms occure
 TH0 = 0x00; // Initializing TL0
 TCON = TCON | (0x01 << 4); //TR0 = 1 starting Timer 0 
-P1 = 0x00;
 chng = 0x01;
+count = 0;
 	
 	while(1) //Infinite while loop, i.e. Superloop
 	{
@@ -59,22 +59,32 @@ chng = 0x01;
 			{
 				if (count == 2)
 				{ 
-					chng = chng<<1; //Left shift
+					chng = chng << 1; //Left shift
 					P1 = ~chng;
 					count = 0; //reset count
+				}
+				else
+				{
+					chng = chng;
+					P1 = ~chng;
 				}
 			}
 			else
 			{
-				if (count == 9) // Button is not pushed
+				if (count == 5) // Button is not pushed
 				{
-					chng = chng<<1; //Left shift
+					chng = chng << 1; //Left shift
 					P1 = ~chng;
 					count = 0; //reset count
 				}
+				else
+				{
+					chng = chng;
+					P1 = ~chng;
+				}
 			}
-		}
-			for (x=0;x<7;x++)
+		}		
+		for (s=0;s<7;s++)
 		{
 			if (TCON & (0x01 << 5)) // Check if TF0 = 1 ... If 1 Overflow happened.
 			{
@@ -89,20 +99,30 @@ chng = 0x01;
 			{
 				if (count == 2)
 				{ 
-					chng = chng>>1; //Right shift
+					chng = chng >> 1; //Right shift
 					P1 = ~chng;
 					count = 0; //reset count
+				}
+				else
+				{
+					chng = chng;
+					P1 = ~chng;
 				}
 			}
 			else
 			{
-				if (count == 9) // Button is not pushed
+				if (count == 5) // Button is not pushed
 				{
-					chng = chng>>1; //Right shift
+					chng = chng >> 1; //Right shift
 					P1 = ~chng;
 					count = 0; //reset count
 				}
+				else
+				{
+					chng = chng;
+					P1 = ~chng;
+				}
 			}
-		}
+		}	
 	}
 }
