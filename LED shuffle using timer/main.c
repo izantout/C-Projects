@@ -33,7 +33,6 @@ main(void)
 	unsigned char chng, count;
 
 InitDevice();
-//P0 = P0 | (0x01 << 2); //initializing P0.2(button 0) to be 1 ... open
 TMOD = 0x01; //Timer 0 is in 16bit Mode
 TL0 = 0x00; // Initializing TH0
 															// when Overflow happens 71ms occure
