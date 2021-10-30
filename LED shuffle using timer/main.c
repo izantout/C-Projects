@@ -86,7 +86,7 @@ x=7;
 					P1 = ~chng;
 				}
 			}	
-			if (x == 0)
+			if (x < 1 & x > -1)
 			{
 				for (s=0;x<7;s++)
 				{
@@ -106,6 +106,7 @@ x=7;
 							chng = chng >> 1; //Right shift
 							P1 = ~chng;
 							count = 0; //reset count
+							x = x+1;
 						}
 						else
 						{
@@ -120,6 +121,7 @@ x=7;
 							chng = chng >> 1; //Right shift
 							P1 = ~chng;
 							count = 0; //reset count
+							x = x+1;
 						}
 						else
 						{
