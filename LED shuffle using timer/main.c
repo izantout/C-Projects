@@ -60,14 +60,28 @@ x=7;
 				if (count == 2)
 				{ 
 					chng = chng << 1; //Left shift
-					P1 = ~chng;
+					if (P0 & 0x02) // If button 1 is not pushed (button 1 is the added button on the breadboard)
+					{
+						P1 = ~chng;
+					}
+					else
+					{
+						P1 = chng;
+					}
 					count = 0; //reset count
 					x = x-1;
 				}
 				else
 				{
 					chng = chng;
-					P1 = ~chng;
+					if (~P0 & 0x02) // If button 1 is pushed (button 1 is the added button on the breadboard)
+					{
+						P1 = ~chng;
+					}
+					else
+					{
+						P1 = chng;
+					}
 				}
 			}
 			else
@@ -75,14 +89,28 @@ x=7;
 				if (count == 5) // Button is not pushed
 				{
 					chng = chng << 1; //Left shift
-					P1 = ~chng;
+					if (~P0 & 0x02) // If button 1 is pushed (button 1 is the added button on the breadboard)
+					{
+						P1 = ~chng;
+					}
+					else
+					{
+						P1 = chng;
+					}
 					count = 0; //reset count
 					x = x-1;
 				}
 				else
 				{
 					chng = chng;
-					P1 = ~chng;
+					if (~P0 & 0x02) // If button 1 is pushed (button 1 is the added button on the breadboard)
+					{
+						P1 = ~chng;
+					}
+					else
+					{
+						P1 = chng;
+					}
 				}
 			}	
 			if (x < 1 & x > -1)
@@ -103,14 +131,28 @@ x=7;
 						if (count == 2)
 						{ 
 							chng = chng >> 1; //Right shift
-							P1 = ~chng;
+							if (~P0 & 0x02) // If button 1 is pushed (button 1 is the added button on the breadboard)
+							{
+								P1 = ~chng;
+							}
+							else
+							{
+								P1 = chng;
+							}
 							count = 0; //reset count
 							x = x+1;
 						}
 						else
 						{
 							chng = chng;
-							P1 = ~chng;
+							if (~P0 & 0x02) // If button 1 is pushed (button 1 is the added button on the breadboard)
+							{
+								P1 = ~chng;
+							}
+							else
+							{
+								P1 = chng;
+							}
 						}
 					}
 					else
@@ -118,14 +160,28 @@ x=7;
 						if (count == 5) // Button is not pushed
 						{
 							chng = chng >> 1; //Right shift
-							P1 = ~chng;
+							if (~P0 & 0x02) // If button 1 is pushed (button 1 is the added button on the breadboard)
+							{
+								P1 = ~chng;
+							}
+							else
+							{
+								P1 = chng;
+							}
 							count = 0; //reset count
 							x = x+1;
 						}
 						else
 						{
 							chng = chng;
-							P1 = ~chng;
+							if (~P0 & 0x02) // If button 1 is pushed (button 1 is the added button on the breadboard)
+							{
+								P1 = ~chng;
+							}
+							else
+							{
+								P1 = chng;
+							}
 						}
 					}
 				}	
