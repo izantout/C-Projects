@@ -30,17 +30,17 @@ IE = IE_EA__DISABLED | IE_EX0__DISABLED | IE_EX1__DISABLED
 main(void)
 {
   unsigned char s,x;
-	unsigned char chng, count;
+  unsigned char chng, count;
 
-InitDevice();
-TMOD = 0x01; //Timer 0 is in 16bit Mode
-TL0 = 0x00; // Initializing TH0
+  InitDevice();
+  TMOD = 0x01; //Timer 0 is in 16bit Mode
+  TL0 = 0x00; // Initializing TH0
 															// when Overflow happens 71ms occure
-TH0 = 0x00; // Initializing TL0
-TCON = TCON | (0x01 << 4); //TR0 = 1 starting Timer 0 
-chng = 0x01;
-count = 0;
-x=7;
+  TH0 = 0x00; // Initializing TL0
+  TCON = TCON | (0x01 << 4); //TR0 = 1 starting Timer 0 
+  chng = 0x01;
+  count = 0;
+  x=7;
 	
 	while(1) //Infinite while loop, i.e. Superloop
 	{
