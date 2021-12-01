@@ -44,21 +44,24 @@ P0MDOUT = P0MDOUT_B0__PUSH_PULL | P0MDOUT_B1__PUSH_PULL
 
 void pause(void)
 	{
-	unsigned char dly1, dly2;
+	unsigned char dly1, dly2, dly3;
 	for (dly1 = 0; dly1 < 0xFF; dly1++)
 		{
 			for (dly2 = 0; dly2 < 0xFF; dly2++)
 			{
+				for (dly3 = 0; dly3 < 0x01; dly3++)
+				{
+				}
 			}
 		}
 	}
 	
 //Write Data	
-void LCD_Data_Write (unsigned char datawrite)
+void LCD_Data_Write (unsigned char *datawrite)
 	{
 		P0 = P0 | (0x01 << 7); // RS = 1
 		P0 = P0 &~ (0x01 << 6); // RW = 0
-		P1 = datawrite;
+		P1 = *datawrite;
 		P0 = P0 | (0x01 << 5); // E = 1
 		pause();
 		P0 = P0 &~ (0x01 << 5); // E = 0
@@ -87,11 +90,25 @@ void Init_LCD (void)
 void main (void)
 	{
 		InitDevice();
+		
 		while(1)
 		{
 			Init_LCD();
-		LCD_Data_Write (0x44); //D
-		LCD_Data_Write (0x34); //A
-		LCD_Data_Write (0x4E); //N
+			LCD_Data_Write (" ");
+			LCD_Data_Write ("I");
+			LCD_Data_Write ("S");
+			LCD_Data_Write ("S");
+			LCD_Data_Write ("A");
+			LCD_Data_Write ("M");
+			LCD_Data_Write (" ");
+			LCD_Data_Write (" ");
+			LCD_Data_Write ("Z");
+			LCD_Data_Write ("A");
+			LCD_Data_Write ("N");
+			LCD_Data_Write ("T");
+			LCD_Data_Write ("O");
+			LCD_Data_Write ("U");
+			LCD_Data_Write ("T");
+			LCD_Data_Write (" ");
 		}
 	}
