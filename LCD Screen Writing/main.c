@@ -96,22 +96,22 @@ void main (void)
 		while(1)
 		{
 			Init_LCD();
-			LCD_Data_Write ("H");
-			LCD_Data_Write ("E");
-			LCD_Data_Write ("L");
-			LCD_Data_Write ("L");
-			LCD_Data_Write ("O");
 			LCD_Data_Write (" ");
+			LCD_Data_Write ("I");
 			LCD_Data_Write ("S");
+			LCD_Data_Write ("S");
+			LCD_Data_Write ("A");
+			LCD_Data_Write ("M");
+			LCD_Data_Write (" ");
+			LCD_Data_Write (" ");
+			LCD_Data_Write ("Z");
+			LCD_Data_Write ("A");
+			LCD_Data_Write ("N");
+			LCD_Data_Write ("T");
 			LCD_Data_Write ("O");
 			LCD_Data_Write ("U");
-			LCD_Data_Write ("W");
-			LCD_Data_Write ("A");
-			LCD_Data_Write ("Y");
-			LCD_Data_Write ("L");
-			LCD_Data_Write ("I");
-			LCD_Data_Write ("H");
-			LCD_Data_Write (".");
+			LCD_Data_Write ("T");
+			LCD_Data_Write (" ");
 
 		}
 	}
