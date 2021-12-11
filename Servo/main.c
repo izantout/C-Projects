@@ -15,7 +15,6 @@ D4 Pin 1.4
 D5 Pin 1.5
 D6 Pin 1.6
 D7 Pin 1.7
-
 Button 0 is on the MCU, used for increase
 Button 1 is on the breadboard, used for decrease
 */
@@ -51,7 +50,45 @@ IE = IE_EA__DISABLED | IE_EX0__DISABLED | IE_EX1__DISABLED
 unsigned int valueTHTL;
 unsigned char angle;	
 
-void T0_ISR(void) interrupt 1
+//Main
+void main (void)
+	{
+		InitDevice();
+		angle = 10;
+		valueTHTL = 0;
+		
+		IE = 0x82; // Enable Timer 0 Interrupt
+		
+		TMOD = 0x11; // 16 BIT TIMER MODS
+		TH0 = 0xEC;
+		TL0 = 0x10;
+		TCON = TCON | (0x01 << 4); // Start Timer 0
+		
+		while(1)
+		{
+			if (!(P0&(0x01 << 2))) // If MCU Button is pushed
+			{
+				angle = angle - 1;
+				if (angle < 1) // Check if angle is less than 0
+				{
+					angle = 1; // Set angle to minimum of 0
+				}
+				while (!(P0&(0x01 << 2)));
+			}
+			else if (!(P0&(0x01 << 3)))
+			{
+				angle = angle + 1;
+				if (angle > 19) // Check if angle greater than 19
+				{
+					angle = 19; // Set angle to maximum 19
+				}
+				while (!(P0&(0x01 << 3)));
+			}
+		}
+	}
+
+//Interrupt	
+	void T0_ISR(void) interrupt 1
 	{
 		unsigned int value;
 		P0 = P0 | (0x01); // Set signal Pin
@@ -59,58 +96,21 @@ void T0_ISR(void) interrupt 1
 		value = 12;
 		
 		TCON = TCON &~ (0x01 << 4); // CLEAR TR0
-		TL0 = 0x10; // Having th0 and tl0 for 20 ms
 		TH0 = 0xEC;
+		TL0 = 0x10; // Having th0 and tl0 for 20 ms
 		TCON = TCON | (0x01 << 4); // Starting Timer 0
 		
 		
 		TCON = TCON &~ (0x01 << 6); // Clearing Timer 1
 		valueTHTL = 0xFF01 - (value * angle);
+		TH1 = (unsigned char)((valueTHTL >> 8) & 0x00FF); // Having TL1 and TH1 variables depending on the angle
 		TL1 = (unsigned char)((valueTHTL) & 0x00FF);
-		TH1 = (unsigned char)((valueTHTL>>8) & 0x00FF); // Having TL1 and TH1 variables depending on the angle
 		TCON = TCON | (0x01 << 6); // Starting Timer 1
 		
 		
-		while(!TCON & (0x01 << 7)); // Waiting until TF1 == 1
+		while(!(TCON & (0x01 << 7))); // Waiting until TF1 == 1
 		TCON = TCON &~ (0x01 << 6); // Clearing Timer 1
-		TCON = TCON &~ (0x01 << 6); // Clearing TF1
+		TCON = TCON &~ (0x01 << 7); // Clearing TF1
 		
 		P0 = P0 &~ (0x01); // Clearing Signal Pin
-	}
-	
-void main (void)
-	{
-		InitDevice();
-		angle = 10;
-		valueTHTL = 0;
-		IE = 0; // Enable Timer 0 Interrupt
-		TMOD = 0x11; // 16 BIT TIMER MODS
-		TH0 = 0xEC;
-		TL0 = 0x10;
-		TCON = TCON | (0x01 << 4); // Start Timer 0
-		while(1)
-		{
-			if (!(P0&(0x01 << 2))) // If MCU Button is pushed
-			{
-				angle = angle + 1;
-				if (angle > 19) // Check if angle is greater than 19
-				{
-					angle = 19; // Set angle to maximum of 19
-				}
-				while (!(P0&(0x01 << 2)));
-			}
-			else if (!(P0&(0x01 << 3)))
-			{
-				angle = angle - 1;
-				if (angle < 0) // Check if angle less than o
-				{
-					angle = 0; // Set angle to minimum 0 
-				}
-				while (!(P0&(0x01 << 3)));
-			}
-			else
-			{
-				angle = angle;
-			}
-		}
 	}
