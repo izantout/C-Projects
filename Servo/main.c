@@ -99,6 +99,11 @@ void LCD_Conditions (void)
 	Init_LCD();
 	if ( angle == 1)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("1");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("M");
@@ -111,88 +116,183 @@ void LCD_Conditions (void)
 	}
 	else if ( angle == 2)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("2");
 	}
 	else if ( angle == 3)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("3");
 	}
 	else if ( angle == 4)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("4");
 	}
 	else if ( angle == 5)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("5");
 	}
 	else if ( angle == 6)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("6");
 	}
 	else if ( angle == 7)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("7");
 	}
 	else if ( angle == 8)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("8");
 	}
 	else if ( angle == 9)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("9");
 	}
 	else if ( angle == 10)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("1");
 		LCD_Data_Write("0");
 	}
 	else if ( angle == 11)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("1");
 		LCD_Data_Write("1");
 	}
 	else if ( angle == 12)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("1");
 		LCD_Data_Write("2");
 	}
 	else if ( angle == 13)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("1");
 		LCD_Data_Write("3");
 	}
 	else if ( angle == 14)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("1");
 		LCD_Data_Write("4");
 	}
 	else if ( angle == 15)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("1");
 		LCD_Data_Write("5");
 	}
 	else if ( angle == 16)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("1");
 		LCD_Data_Write("6");
 	}
 	else if ( angle == 17)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("1");
 		LCD_Data_Write("7");
 	}
 	else if ( angle == 18)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("1");
 		LCD_Data_Write("8");
 	}
 	else if ( angle == 19)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("1");
 		LCD_Data_Write("9");
 	}
 	else if ( angle == 20)
 	{
+		LCD_Data_Write("P");
+		LCD_Data_Write("o");
+		LCD_Data_Write("s");
+		LCD_Data_Write(".");
+		LCD_Data_Write(" ");
 		LCD_Data_Write("2");
 		LCD_Data_Write("0");
 		LCD_Data_Write(" ");
@@ -280,3 +380,4 @@ void main (void)
 		
 		P0 = P0 &~ (0x01); // Clearing Signal Pin
 	}
+	
