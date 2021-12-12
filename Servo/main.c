@@ -50,6 +50,170 @@ IE = IE_EA__DISABLED | IE_EX0__DISABLED | IE_EX1__DISABLED
 unsigned int valueTHTL;
 unsigned char angle;	
 
+//LCD INITIATION
+void pause(void)
+	{
+	unsigned char dly1, dly2;
+	for (dly1 = 0; dly1 < 0xFF; dly1++)
+		{
+			for (dly2 = 0; dly2 < 0x01; dly2++)
+			{
+			}
+		}
+	}
+	
+//Write Data	
+void LCD_Data_Write (unsigned char *datawrite)
+	{
+		P0 = P0 | (0x01 << 7); // RS = 1
+		P0 = P0 &~ (0x01 << 6); // RW = 0
+		P1 = *datawrite;
+		P0 = P0 | (0x01 << 5); // E = 1
+		pause();
+		P0 = P0 &~ (0x01 << 5); // E = 0
+	}
+	
+//Write CMD
+void LCD_Command_Write (unsigned char cmd)
+	{
+		P0 = P0 &~ (0x01 << 7); //RS = 0
+		P0 = P0 &~ (0x01 << 6); //RW = 0
+		P1 = cmd; //Set D0-D7 
+		P0 = P0 | (0x01 << 5); // E = 1
+		pause();
+		P0 = P0 &~ (0x01 << 5); // E = 0
+	}
+
+//Init LCD	
+void Init_LCD (void)
+	{
+		LCD_Command_Write(0x38); // 8bit interface, 2 Lines, 5x7 font
+		LCD_Command_Write(0x06); // Autoincrement, no display shift
+		LCD_Command_Write(0x0E); // Display On, Cursor On, no blinking
+		LCD_Command_Write(0x01); // Clear display, Set cursor to 0
+	}	
+//END OF LCD INITIATION
+
+void LCD_Conditions (void)
+{
+	Init_LCD();
+	if ( angle == 1)
+	{
+		LCD_Data_Write("1");
+		LCD_Data_Write(" ");
+		LCD_Data_Write("M");
+		LCD_Data_Write("I");
+		LCD_Data_Write("N");
+		LCD_Data_Write("I");
+		LCD_Data_Write("M");
+		LCD_Data_Write("U");
+		LCD_Data_Write("M");
+	}
+	else if ( angle == 2)
+	{
+		LCD_Data_Write("2");
+	}
+	else if ( angle == 3)
+	{
+		LCD_Data_Write("3");
+	}
+	else if ( angle == 4)
+	{
+		LCD_Data_Write("4");
+	}
+	else if ( angle == 5)
+	{
+		LCD_Data_Write("5");
+	}
+	else if ( angle == 6)
+	{
+		LCD_Data_Write("6");
+	}
+	else if ( angle == 7)
+	{
+		LCD_Data_Write("7");
+	}
+	else if ( angle == 8)
+	{
+		LCD_Data_Write("8");
+	}
+	else if ( angle == 9)
+	{
+		LCD_Data_Write("9");
+	}
+	else if ( angle == 10)
+	{
+		LCD_Data_Write("1");
+		LCD_Data_Write("0");
+	}
+	else if ( angle == 11)
+	{
+		LCD_Data_Write("1");
+		LCD_Data_Write("1");
+	}
+	else if ( angle == 12)
+	{
+		LCD_Data_Write("1");
+		LCD_Data_Write("2");
+	}
+	else if ( angle == 13)
+	{
+		LCD_Data_Write("1");
+		LCD_Data_Write("3");
+	}
+	else if ( angle == 14)
+	{
+		LCD_Data_Write("1");
+		LCD_Data_Write("4");
+	}
+	else if ( angle == 15)
+	{
+		LCD_Data_Write("1");
+		LCD_Data_Write("5");
+	}
+	else if ( angle == 16)
+	{
+		LCD_Data_Write("1");
+		LCD_Data_Write("6");
+	}
+	else if ( angle == 17)
+	{
+		LCD_Data_Write("1");
+		LCD_Data_Write("7");
+	}
+	else if ( angle == 18)
+	{
+		LCD_Data_Write("1");
+		LCD_Data_Write("8");
+	}
+	else if ( angle == 19)
+	{
+		LCD_Data_Write("1");
+		LCD_Data_Write("9");
+	}
+	else if ( angle == 20)
+	{
+		LCD_Data_Write("2");
+		LCD_Data_Write("0");
+		LCD_Data_Write(" ");
+		LCD_Data_Write("M");
+		LCD_Data_Write("A");
+		LCD_Data_Write("X");
+		LCD_Data_Write("I");
+		LCD_Data_Write("M");
+		LCD_Data_Write("U");
+		LCD_Data_Write("M");
+	}
+	else
+	{
+		LCD_Data_Write("E");
+		LCD_Data_Write("R");
+		LCD_Data_Write("R");
+		LCD_Data_Write("O");
+		LCD_Data_Write("R");
+	}
+}
+	
 //Main
 void main (void)
 	{
@@ -73,15 +237,17 @@ void main (void)
 				{
 					angle = 1; // Set angle to minimum of 0
 				}
+				LCD_Conditions();
 				while (!(P0&(0x01 << 2)));
 			}
 			else if (!(P0&(0x01 << 3)))
 			{
 				angle = angle + 1;
-				if (angle > 19) // Check if angle greater than 19
+				if (angle > 20) // Check if angle greater than 19
 				{
-					angle = 19; // Set angle to maximum 19
+					angle = 20; // Set angle to maximum 19
 				}
+				LCD_Conditions();
 				while (!(P0&(0x01 << 3)));
 			}
 		}
