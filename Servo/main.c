@@ -102,8 +102,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("-");
@@ -115,8 +115,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("-");
@@ -128,8 +128,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("-");
@@ -141,8 +141,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("-");
@@ -154,8 +154,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("-");
@@ -167,8 +167,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("-");
@@ -180,8 +180,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("-");
@@ -193,8 +193,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("-");
@@ -206,8 +206,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("-");
@@ -219,8 +219,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("-");
@@ -231,8 +231,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("0");
@@ -242,8 +242,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("+");
@@ -254,8 +254,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("+");
@@ -267,8 +267,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("+");
@@ -280,8 +280,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("+");
@@ -293,8 +293,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("+");
@@ -306,8 +306,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("+");
@@ -319,8 +319,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("+");
@@ -332,8 +332,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("+");
@@ -345,8 +345,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("+");
@@ -358,8 +358,8 @@ void LCD_Conditions (void)
 		LCD_Data_Write("A");
 		LCD_Data_Write("N");
 		LCD_Data_Write("G");
-		LCD_Data_Write("E");
 		LCD_Data_Write("L");
+		LCD_Data_Write("E");
 		LCD_Data_Write(":");
 		LCD_Data_Write(" ");
 		LCD_Data_Write("+");
