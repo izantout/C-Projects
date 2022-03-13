@@ -9,6 +9,8 @@
 #include "SysTick.h"
 #include "tm4c123gh6pm.h"
 
+#define CARS_LIGHTS       (*((volatile unsigned long *)0x400050FC))	//accesses PB5–PB0
+#define TURNING_LIGHTS    (*((volatile unsigned long *)0x40025028))	//accesses PF3 and PF1	
 
 void delay10ms(int delay)
 {
@@ -27,14 +29,14 @@ void portInit(void)
 	{
 	volatile unsigned long delay;
 		
-		SYSCTL_RCGC2_R |= 0x0000011; // PA, PB clock
+		SYSCTL_RCGC2_R |= 0x0000003; // PA, PB clock
 	delay = SYSCTL_RCGC2_R; // delay            
 // PORT A
 	GPIO_PORTA_DIR_R = 0x00;  // 5) PA2,PA3 input
 	GPIO_PORTA_DEN_R = 0x0C;  // 8) enable digital pins PA4-PA0
 // PORT E		
-	GPIO_PORTE_DIR_R = 0x3F;  // 5) PE2,PE1,PE0 output
-	GPIO_PORTE_DEN_R = 0x7F;  // 8) enable digital pins PB5-PB0
+	GPIO_PORTB_DIR_R = 0x3F;  // 5) PE2,PE1,PE0 output
+	GPIO_PORTB_DEN_R = 0x7F;  // 8) enable digital pins PB5-PB0
 // PORT F		
 		SYSCTL_RCGC2_R |= 0X0000020; // PF clock
 	GPIO_PORTF_DIR_R = 	0x0A; // 5) PF4 input, PF3,PF1 output
@@ -66,20 +68,18 @@ typedef const struct State STyp;
 
 
 STyp FSM[7] = {
-{0x21, 0x02, 3000,{goS,waitS,goS,waitS,goS,waitS,goS,waitS}}, 					// goS   .
-{0x22, 0x02, 500,{goW,goW,goW,goW,goW,goW,goW,goW}}, 									  // waitS .
-{0x0C, 0x02, 3000,{goW,goW,waitW,waitW,waitW,waitW,waitW,waitW}}, 			// GoW   .
-{0x14, 0x02, 500,{goS,goS,goS,goS,goS,goS,goS,goS}}, 								  	// waitW .
-{0x0A, 0x08, 3000,{waitR,waitR,waitR,waitR,goR,goR,goR,goR}}, 					// goR   .
-{0x0A, 0x0A, 500,{stopR,stopR,stopR,stopR,stopR,stopR,stopR,stopR}},    // waitR .
-{0x0A, 0x02, 3000,{stopR,stopR,stopR,stopR,goR,goR,goR,goR}} 					  // stopR .
+{0x0C, 0x02, 3000,{goW,goW,waitW,waitW,waitW,waitW,waitW,waitW}}, 			// GoW
+{0x14, 0x02, 500,{goS,goS,goS,goS,goS,goS,goS,goS}}, 								  	// waitW
+{0x21, 0x02, 3000,{goS,waitS,goS,waitS,goS,waitS,goS,waitS}}, 					// goS
+{0x22, 0x02, 500,{goW,goW,goW,goW,goW,goW,goW,goW}}, 									  // waitS
+{0x0A, 0x08, 3000,{waitR,waitR,waitR,waitR,goR,goR,goR,goR}}, 					// goR
+{0x0A, 0x0A, 500,{stopR,stopR,stopR,stopR,stopR,stopR,stopR,stopR}},    // waitR
+{0x0A, 0x02, 3000,{stopR,stopR,stopR,stopR,goR,goR,goR,goR}} 					  // stopR
 };
 
-unsigned long CS;     // index of current state
-unsigned long Input;
-
 int main(void){ 
-
+	unsigned long CS;     // index of current state
+	unsigned long Input;
 	portInit();           // initialize ports and timer
   CS = goS;             // initial state
   SysTick_Init();
@@ -87,14 +87,14 @@ int main(void){
 
   while(1){ 
 		//GPIO_PORTB_DATA_R = FSM[CS].Cars_Output; // set signals
-    GPIO_PORTE_DATA_R = ~FSM[CS].Cars_Output;  
-		GPIO_PORTF_DATA_R = FSM[CS].Turning_Output;		
-		// delay10ms(FSM[CS].Time);
+    CARS_LIGHTS = ~FSM[CS].Cars_Output;  
+		TURNING_LIGHTS = ~FSM[CS].Turning_Output;		// delay10ms(FSM[CS].Time);
 		// delay10ms(5);
 		// SysTick_wait1ms(changes depending on the state)
 		SysTick_Wait1ms(FSM[CS].Time);
-		Input = GPIO_PORTA_DATA_R >> 2; // read sensors
+		Input = (~GPIO_PORTA_DATA_R&0x0C) >> 2; // read sensors
 		CS = FSM[CS].Next[Input];
 	}
         
 }
+
