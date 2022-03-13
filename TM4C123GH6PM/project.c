@@ -73,13 +73,13 @@ typedef const struct State STyp;
 
 
 STyp FSM[7] = {
-{0x21, 0x02, 3000,{goS,waitS,goS,waitS,goR,waitS,goR,waitS}}, 	      	// goS
-{0x22, 0x02, 500,{goW,goW,goW,goW,goW,goW,goW,goW}}, 									  // waitS
-{0x0C, 0x02, 3000,{goW,goW,waitW,waitW,waitW,waitW,waitW,waitW}}, 			// goW
-{0x14, 0x02, 500,{goS,goS,goS,goS,goR,goR,goR,goR}}, 								  	// waitW
-{0x21, 0x08, 3000,{waitR,waitR,waitR,waitR,goR,goR,goR,goR}}, 					// goR
-{0x21, 0x0A, 500,{stopR,stopR,stopR,stopR,stopR,stopR,stopR,stopR}},    // waitR
-{0x21, 0x02, 3000,{goW,goW,goS,goS,goR,goR,goR,goR}} 					        // stopR
+{0x21, 0x02, 6500,{goS,waitS,goS,waitS,goR,waitS,goR,waitS}}, 	      	  // goS
+{0x22, 0x02, 1500,{goW,goW,goW,goW,goW,goW,goW,goW}}, 									  // waitS
+{0x0C, 0x02, 6500,{goW,goW,waitW,waitW,waitW,waitW,waitW,waitW}}, 			  // goW
+{0x14, 0x02, 1500,{goS,goS,goS,goS,goR,goR,goR,goR}}, 								  	// waitW
+{0x21, 0x08, 6500,{waitR,waitR,waitR,waitR,goR,goR,goR,goR}}, 					  // goR
+{0x21, 0x0A, 1500,{stopR,stopR,stopR,stopR,stopR,stopR,stopR,stopR}},     // waitR
+{0x21, 0x02, 6500,{goW,goW,goS,goS,goR,goR,goR,goR}} 					            // stopR
 };
 
 // Variable Decleration
