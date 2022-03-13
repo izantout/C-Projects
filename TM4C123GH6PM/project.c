@@ -79,31 +79,31 @@ STyp FSM[7] = {
 {0x14, 0x02, 500,{goS,goS,goS,goS,goR,goR,goR,goR}}, 								  	// waitW
 {0x21, 0x08, 3000,{waitR,waitR,waitR,waitR,goR,goR,goR,goR}}, 					// goR
 {0x21, 0x0A, 500,{stopR,stopR,stopR,stopR,stopR,stopR,stopR,stopR}},    // waitR
-{0x21, 0x02, 3000,{stopR,stopR,stopR,stopR,goR,goR,goR,goR}} 					  // stopR
+{0x21, 0x02, 3000,{goW,goW,goS,goS,goR,goR,goR,goR}} 					        // stopR
 };
 
-#define BUTTONS              (*((volatile unsigned long *)0x40004070))  //acesses PA4-PA2
-#define VEHICLE_LIGHTS       (*((volatile unsigned long *)0x400240FC))	//accesses PE5–PE0
-#define TURNING_LIGHTS   		 (*((volatile unsigned long *)0x40025028))	//accesses PF3 and PF1	
-unsigned long CS;     // index of current state
+// Variable Decleration
+#define BUTTONS              (*((volatile unsigned long *)0x40004070))  //acesses PA4(WALK)-PA3(SOUTH)-PA2(WEST)
+#define VEHICLE_LIGHTS       (*((volatile unsigned long *)0x400240FC))	//accesses PE5(RedE)-PE4(YellowE)-PE3(GreenE)-PE2(RedS)-PE1(YellowS)–PE0(GreenS)
+#define TURNING_LIGHTS   		 (*((volatile unsigned long *)0x40025028))	//accesses PF3( and PF1	
+unsigned long CS;
 unsigned long Input;
-unsigned long input2;
 int main(void){ 
 
-	portInit();           // initialize ports and timer
-  CS = goS;             // initial state
-  SysTick_Init();
+	portInit();           // Initializing Ports and Timer
+  CS = goW;             // Initializing State0
+  SysTick_Init();				// Initializing SysTick
 
 
   while(1){ 
-		//GPIO_PORTB_DATA_R = FSM[CS].Cars_Output; // set signals
+		// Assigning variables to FSM values
     VEHICLE_LIGHTS = ~FSM[CS].Cars_Output;  
 		TURNING_LIGHTS = FSM[CS].Turning_Output;
-		
-		// delay10ms(5);
-		// SysTick_wait1ms(changes depending on the state)
+		// Delay
 		SysTick_Wait1ms(FSM[CS].Time);
+		// Taking Input
 		Input = BUTTONS >> 2; // read sensors
+		// Define Next State
 		CS = FSM[CS].Next[Input];
 	}
         
