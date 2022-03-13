@@ -79,7 +79,7 @@ STyp FSM[7] = {
 {0x14, 0x02, 1500,{goS,goS,goS,goS,goR,goR,goR,goR}}, 								  	// waitW
 {0x21, 0x08, 6500,{waitR,waitR,waitR,waitR,goR,goR,goR,goR}}, 					  // goR
 {0x21, 0x0A, 1500,{stopR,stopR,stopR,stopR,stopR,stopR,stopR,stopR}},     // waitR
-{0x21, 0x02, 6500,{goW,goW,goS,goS,goR,goR,goR,goR}} 					            // stopR
+{0x21, 0x02, 6500,{goS,goW,goS,goS,goR,goR,goR,goR}} 					            // stopR
 };
 
 // Variable Decleration
