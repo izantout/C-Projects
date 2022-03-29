@@ -1,7 +1,7 @@
 // ***** 0. Documentation Section *****
-// TableTrafficLight.c for Lab 10
-// Runs on LM4F120/TM4C123
-// Index implementation of a Moore finite state machine to operate a traffic light.  
+// DragRace.c for Project 2
+// Runs on TM4C123GH6PM
+// Index implementation of a Moore finite state machine to operate a drag race Christmas tree.  
 // Issam Zantout
 // January 25 2022
 
@@ -13,14 +13,19 @@ void portInit(void)
 	{
 	volatile unsigned long delay;
 		
-		SYSCTL_RCGC2_R |= 0x0000011;    // PA, PE clock
-	delay = SYSCTL_RCGC2_R;           // delay            
+	SYSCTL_RCGC2_R |= 0x0000011;      // PA, PE clock
+	delay = SYSCTL_RCGC2_R;           // delay       
+		
 // PORT A Initialization
-	GPIO_PORTA_DIR_R = 0x00;          // 5) PA2,PA3 input
-	GPIO_PORTA_DEN_R = 0x0C;          // 8) enable digital pins PA4-PA0
+	GPIO_PORTA_DIR_R = 0x00;          // 5) PA4, PA3, PA2 are inputs
+	GPIO_PORTA_DEN_R = 0x1C;          // 8) enable digital pins PA4-PA2
+		
 // PORT E Initialization
-	GPIO_PORTE_DIR_R = 0x3F;          // 5) PE2,PE1,PE0 output
-	GPIO_PORTE_DEN_R = 0x7F;          // 8) enable digital pins PE5-PE0
+	GPIO_PORTE_DIR_R = 0xFF;          // 5) PE7, PE6, PE5, PE4, PE3, PE2, PE1, PE0 are outputs
+	GPIO_PORTE_DEN_R = 0xFF;          // 8) enable digital pins PE7-PE0
+		
+		// I dont think we need port F for this one, we take inputs from port A and give outputs to port E
+		// And since he doesnt say he wants on the board display we can remove port F i guess
 // PORT F	Initialization
   SYSCTL_RCGC2_R |= 0x00000020;     // 1) F clock
   delay = SYSCTL_RCGC2_R;           // delay   
@@ -43,8 +48,7 @@ void delay10ms(int);
 // ***** 3. Subroutines Section *****
 
 struct State {
-unsigned long Cars_Output;
-unsigned long Turning_Output;
+unsigned long Lights_Output;
 unsigned long Time;               // 10 ms units
 unsigned long Next[8];            // list of next states
 };
@@ -63,23 +67,33 @@ typedef const struct State STyp;
 
 
 STyp FSM[11] = {
-{Light1, Light2, Time,{}}, // Red Both
-{Light1, Light2, Time,{}}, // Yellow 1 Both
-{Light1, Light2, Time,{}}, // Yellow 2 Both
-{Light1, Light2, Time,{}}, // Green Both
-{Light1, Light2, Time,{}}, // Yellow 1 Left
-{Light1, Light2, Time,{}}, // Yellow 1 Right
-{Light1, Light2, Time,{}}, // Yellow 2 Both False Start
-{Light1, Light2, Time,{}}, // Win Right
-{Light1, Light2, Time,{}}, // Win Left
-{Light1, Light2, Time,{}}, // Red Right
-{Light1, Light2, Time,{}}  // Red Left
+/*
+Time should be:
+check every 0.5 seconds if both buttons are pushed if they are go to Yellow 1                                      //Red Both
+check after 0.5 seconds if any of the buttons are released, if none go to Yellow 2, if any is released go to False // Yellow 1 Both
+check after 0.5 seconds if any of the buttons are released, if none go to Green, if any is released go to False    // Yellow 2 Both
+check every 0.05 seconds to see which button is released first, if left go to Win Left, if right go to Win Right   // Green Both
+0.25 in Yellow 1 Left, 0.25 in Yellow 1 Right, and 0.25 in Yellow Both false                                       // 3 Stages of False Start
+1 Second for Win Right, 1 second for Win Left                                                                      // Both Win
+0.25 seconds for Red Right and Red Left                                                                            // Both Lose 
+*/
+{0x88, Time,{}}, // Red Both
+{0x44, Time,{}}, // Yellow 1 Both
+{0x22, Time,{}}, // Yellow 2 Both
+{0x11, Time,{}}, // Green Both
+{0x40, Time,{}}, // Yellow 1 Left
+{0x04, Time,{}}, // Yellow 1 Right
+{0x22, Time,{}}, // Yellow 2 Both False Start
+{0x01, Time,{}}, // Win Right
+{0x10, Time,{}}, // Win Left
+{0x08, Time,{}}, // Red Right
+{0x80, Time,{}}  // Red Left
 };
 
 // Variable Decleration
-#define BUTTONS              (*((volatile unsigned long *)0x40004070))    //accesses PA4(WALK)-PA3(SOUTH)-PA2(WEST)
-#define LIGHT1               (*((volatile unsigned long *)0x400240FC))	  //accesses PE5(RedE)-PE4(YellowE)-PE3(GreenE)-PE2(RedS)-PE1(YellowS)–PE0(GreenS)
-#define lIGHT2           		 (*((volatile unsigned long *)0x40025028))	  //accesses PF3( and PF1	
+#define BUTTONS (*((volatile unsigned long *)0x40004070))//accesses PA4(Left)-PA3(Right)-PA2(Reset)
+#define LIGHTS  (*((volatile unsigned long *)0x400243FC))//accesses PE7(Red Left)-PE6(Yellow1 Left)-PE5(Yellow2 Left)-PE4(Green Left)
+																												 //       PE3(Red Right)-PE2(Yellow1 Right)-PE1(Yellow2 Right)-PE0(Green Right)
 unsigned long CS;
 unsigned long Input;
 int main(void){ 
@@ -91,8 +105,7 @@ int main(void){
 
   while(1){ 
 		// Assigning variables to FSM values
-    VEHICLE_LIGHTS = ~FSM[CS].Cars_Output;  
-		TURNING_LIGHTS = FSM[CS].Turning_Output;
+    LIGHTS = ~FSM[CS].Lights_Output;  
 		// Delay
 		SysTick_Wait1ms(FSM[CS].Time);
 		// Taking Input
