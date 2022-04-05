@@ -18,16 +18,17 @@ void EnableInterrupts(void);              // Enable interrupts
     
 // ***** 2. Global Variable Declerations *****
 
-#define BUTTONS (*((volatile unsigned long *)0x40004030))  //accesses PA3(Left)-PA2(Right)
-#define LIGHTS  (*((volatile unsigned long *)0x400243FC))  //accesses PE7(Red Left) - PE6(Yellow1 Left) - PE5(Yellow2 Left) - PE4(Green Left)
-																											     	       // PE3(Red Right)- PE2(Yellow1 Right)- PE1(Yellow2 Right)- PE0(Green Right)
+#define BUTTONS      (*((volatile unsigned long *)0x40004030))// Accesses  PA3(Left)     - PA2(Right)
+#define LIGHTS_Left  (*((volatile unsigned long *)0x40024078))// Accesses  PE4(Red Left) - PE3(Yellow 1 Left)- PE2(Yellow 2 Left)- PE1(Green Left)
+#define	LIGHTS_Right (*((volatile unsigned long *)0x400063C0))// Accesses  PC7(Red Right)- PC6(Yellow1 Right)- PC5(Yellow2 Right)- PC4(Green Right)
 unsigned long CS;
 unsigned long Input;
 
 // ***** 3. Struct  *****
 
 struct State {
-unsigned long Lights_Output;
+unsigned long Lights_Left_Output;
+unsigned long Lights_Right_Output;
 unsigned long Time;                 // 10 ms units
 unsigned long Next[4];              // list of next states
 };
@@ -44,15 +45,15 @@ typedef const struct State STyp;
 
 
 STyp FSM[9] = {  
-{0x88, 500 ,{RedB,	RedB,	    RedB,	    Yellow1B}},      // Red Both
-{0x44, 500 ,{RedB,	RedLeft,	RedRight,	Yellow2B}},      // Yellow 1 Both
-{0x22, 500 ,{RedB,	RedLeft,	RedRight,	GreenB}},        // Yellow 2 Both
-{0x11, 50  ,{WinB,	WinLeft,	WinRight,	GreenB}},        // Green Both
-{0x01, 1000,{RedB,	RedB,	    RedB,	    RedB}},          // Win Right
-{0x10, 1000,{RedB,	RedB,	    RedB,	    RedB}},          // Win Left
-{0x11, 500 ,{RedB,	RedB,	    RedB,	    RedB}},          // Win Both
-{0x08, 250 ,{RedB,	RedB,     RedB,	    RedB}},          // Red Right
-{0x80, 250 ,{RedB,	RedB,	    RedB,	    RedB}}           // Red Left
+{0x80, 0x08, 500 ,{RedB,	RedB,	    RedB,	    Yellow1B}},      // Red Both
+{0x40, 0x04, 500 ,{RedB,	RedLeft,	RedRight,	Yellow2B}},      // Yellow 1 Both
+{0x20, 0x02, 500 ,{RedB,	RedLeft,	RedRight,	GreenB}},        // Yellow 2 Both
+{0x10, 0x01, 50  ,{WinB,	WinLeft,	WinRight,	GreenB}},        // Green Both
+{0x00, 0x01, 1000,{RedB,	RedB,	    RedB,	    RedB}},          // Win Right
+{0x10, 0x00, 1000,{RedB,	RedB,	    RedB,	    RedB}},          // Win Left
+{0x10, 0x01, 500 ,{RedB,	RedB,	    RedB,	    RedB}},          // Win Both
+{0x00, 0x08, 250 ,{RedB,	RedB,     RedB,	    RedB}},          // Red Right
+{0x80, 0x00, 250 ,{RedB,	RedB,	    RedB,	    RedB}}           // Red Left
 };
 
 
@@ -68,7 +69,8 @@ int main(void){
 
   while(1){ 
 		// Assigning variables to FSM values
-    LIGHTS = ~FSM[CS].Lights_Output;  
+    LIGHTS_Left = ~FSM[CS].Lights_Left_Output;  
+		LIGHTS_Right = ~FSM[CS].Lights_Right_Output; 
 		// Delay
 		SysTick_Wait1ms(FSM[CS].Time);
 		// Taking Input
