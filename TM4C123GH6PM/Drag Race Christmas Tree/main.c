@@ -18,11 +18,7 @@ void EnableInterrupts(void);              // Enable interrupts
     
 // ***** 2. Global Variable Declerations *****
 
-#define BUTTONS      (*((volatile unsigned long *)0x40004030))// Accesses  PA3(Left)     - PA2(Right)
-#define LIGHTS_Left  (*((volatile unsigned long *)0x40024078))// Accesses  PE4(Red Left) - PE3(Yellow 1 Left)- PE2(Yellow 2 Left)- PE1(Green Left)
-#define	LIGHTS_Right (*((volatile unsigned long *)0x400063C0))// Accesses  PC7(Red Right)- PC6(Yellow1 Right)- PC5(Yellow2 Right)- PC4(Green Right)
-unsigned long CS;
-unsigned long Input;
+
 
 // ***** 3. Struct  *****
 
@@ -45,20 +41,24 @@ typedef const struct State STyp;
 
 
 STyp FSM[9] = {  
-{0x80, 0x08, 500 ,{RedB,	RedB,	    RedB,	    Yellow1B}},      // Red Both
-{0x40, 0x04, 500 ,{RedB,	RedLeft,	RedRight,	Yellow2B}},      // Yellow 1 Both
-{0x20, 0x02, 500 ,{RedB,	RedLeft,	RedRight,	GreenB}},        // Yellow 2 Both
-{0x10, 0x01, 50  ,{WinB,	WinLeft,	WinRight,	GreenB}},        // Green Both
-{0x00, 0x01, 1000,{RedB,	RedB,	    RedB,	    RedB}},          // Win Right
-{0x10, 0x00, 1000,{RedB,	RedB,	    RedB,	    RedB}},          // Win Left
-{0x10, 0x01, 500 ,{RedB,	RedB,	    RedB,	    RedB}},          // Win Both
-{0x00, 0x08, 250 ,{RedB,	RedB,     RedB,	    RedB}},          // Red Right
-{0x80, 0x00, 250 ,{RedB,	RedB,	    RedB,	    RedB}}           // Red Left
+{0x80, 0x08, 5000 ,{RedB,	RedB,	    RedB,	    Yellow1B}},      // Red Both
+{0x40, 0x04, 5000 ,{RedB,	RedLeft,	RedRight,	Yellow2B}},      // Yellow 1 Both
+{0x20, 0x02, 5000 ,{RedB,	RedLeft,	RedRight,	GreenB}},        // Yellow 2 Both
+{0x10, 0x01, 500  ,{WinB,	WinLeft,	WinRight,	GreenB}},        // Green Both
+{0x00, 0x01, 10000,{RedB,	RedB,	    RedB,	    RedB}},          // Win Right
+{0x10, 0x00, 10000,{RedB,	RedB,	    RedB,	    RedB}},          // Win Left
+{0x10, 0x01, 5000 ,{RedB,	RedB,	    RedB,	    RedB}},          // Win Both
+{0x00, 0x08, 2500 ,{RedB,	RedB,     RedB,	    RedB}},          // Red Right
+{0x80, 0x00, 2500 ,{RedB,	RedB,	    RedB,	    RedB}}           // Red Left
 };
 
 
 // ***** 4. main function  *****
-
+#define BUTTONS      (*((volatile unsigned long *)0x40004030))// Accesses  PA3(Left)     - PA2(Right)
+#define LIGHTS_Left  (*((volatile unsigned long *)0x40024078))// Accesses  PE4(Red Left) - PE3(Yellow 1 Left)- PE2(Yellow 2 Left)- PE1(Green Left)
+#define	LIGHTS_Right (*((volatile unsigned long *)0x40025078))// Accesses  PF4(Red Right)- PF3(Yellow1 Right)- PF2(Yellow2 Right)- PF1(Green Right)
+unsigned long CS;
+unsigned long Input;
 int main(void){ 
 	
 	// Before while loop 
@@ -93,6 +93,18 @@ void portInit(void)
 	GPIO_PORTA_DEN_R = 0x0C;                // 8) enable digital pins PA3 & PA2
 		
 // PORT E Initialization
-	GPIO_PORTE_DIR_R = 0xFF;                // 5) PE7-PE0 are outputs, give them a 1
-	GPIO_PORTE_DEN_R = 0xFF;                // 8) enable digital pins PE7-PE0
+	GPIO_PORTE_DIR_R = 0x1E;                // 5) PE7-PE0 are outputs, give them a 1
+	GPIO_PORTE_DEN_R = 0x1E;                // 8) enable digital pins PE7-PE0
+		
+// PORT F Initialization		
+  SYSCTL_RCGC2_R |= 0x00000020;     // 1) F clock
+  delay = SYSCTL_RCGC2_R;           // delay   
+  GPIO_PORTF_LOCK_R = 0x4C4F434B;   // 2) unlock PortF PF0  
+  GPIO_PORTF_CR_R = 0x1F;           // allow changes to PF4-0       
+  GPIO_PORTF_AMSEL_R = 0x00;        // 3) disable analog function
+  GPIO_PORTF_PCTL_R = 0x00000000;   // 4) GPIO clear bit PCTL  
+  GPIO_PORTF_DIR_R = 0x0A;          // 5) PF4,PF0 input, PF3,PF2,PF1 output   
+  GPIO_PORTF_AFSEL_R = 0x00;        // 6) no alternate function
+  GPIO_PORTF_PUR_R = 0x1E;          // enable pullup resistors on PF4,PF0       
+  GPIO_PORTF_DEN_R = 0x1E;          // 7) enable digital pins PF4-PF0 
 	}
