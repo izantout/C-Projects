@@ -51,16 +51,15 @@ typedef const struct State STyp;
 
 
 STyp FSM[9] = {  
-
-{0x88, 500 ,{RedB, RedB, RedB,    RedB, RedB,     RedB, Yellow1B, RedB}},          // Red Both
-{0x44, 500 ,{RedB, RedB, RedLeft, RedB, RedRight, RedB, Yellow2B, RedB}},          // Yellow 1 Both
-{0x22, 500 ,{RedB, RedB, RedLeft, RedB, RedRight, RedB, GreenB,   RedB}},          // Yellow 2 Both
-{0x11, 50  ,{WinB, RedB, WinLeft, RedB, WinRight, RedB, GreenB,   RedB}},          // Green Both
-{0x01, 1000,{RedB, RedB, RedB,    RedB, RedB,     RedB, RedB,     RedB}},          // Win Right
-{0x10, 1000,{RedB, RedB, RedB,    RedB, RedB,     RedB, RedB,     RedB}},          // Win Left
-{0x11, 500 ,{RedB, RedB, RedB,    RedB, RedB,     RedB, RedB,     RedB}},          // Win Both
-{0x08, 250 ,{RedB, RedB, RedB,    RedB, RedB,     RedB, RedB,     RedB}},          // Red Right
-{0x80, 250 ,{RedB, RedB, RedB,    RedB, RedB,     RedB, RedB,     RedB}}           // Red Left
+{0x88, 500 ,{RedB,	RedB,	    RedB,	    Yellow1B}},      // Red Both
+{0x44, 500 ,{RedB,	RedLeft,	RedRight,	Yellow2B}},      // Yellow 1 Both
+{0x22, 500 ,{RedB,	RedLeft,	RedRight,	GreenB}},        // Yellow 2 Both
+{0x11, 50  ,{WinB,	WinLeft,	WinRight,	GreenB}},        // Green Both
+{0x01, 1000,{RedB,	RedB,	    RedB,	    RedB}},          // Win Right
+{0x10, 1000,{RedB,	RedB,	    RedB,	    RedB}},          // Win Left
+{0x11, 500 ,{RedB,	RedB,	    RedB,	    RedB}},          // Win Both
+{0x08, 250 ,{RedB,	RedB,     RedB,	    RedB}},          // Red Right
+{0x80, 250 ,{RedB,	RedB,	    RedB,	    RedB}}           // Red Left
 };
 
 int main(void){ 
@@ -87,42 +86,14 @@ void portInit(void)
 	{
 	volatile unsigned long delay;
 		
-	SYSCTL_RCGC2_R |= 0x0000011; 		        // 1) PA, PE clock
+	SYSCTL_RCGC2_R |= 0x0000011; 		        // 1) PORTA & PORTE clock
 	delay = SYSCTL_RCGC2_R;                 // delay       
 		
 // PORT A Initialization
-	GPIO_PORTA_DIR_R = 0x00;                // 5) PA4, PA3, PA2 are inputs
-	GPIO_PORTA_DEN_R = 0x1C;                // 8) enable digital pins PA4-PA2
+	GPIO_PORTA_DIR_R = 0x00;                // 5) PA3 & PA2 are inputs, give them a 0
+	GPIO_PORTA_DEN_R = 0x0C;                // 8) enable digital pins PA3 & PA2
 		
 // PORT E Initialization
-	GPIO_PORTE_DIR_R = 0xFF;                // 5) PE7, PE6, PE5, PE4, PE3, PE2, PE1, PE0 are outputs
+	GPIO_PORTE_DIR_R = 0xFF;                // 5) PE7-PE0 are outputs, give them a 1
 	GPIO_PORTE_DEN_R = 0xFF;                // 8) enable digital pins PE7-PE0
 	}
-	
-void EdgeCounter_Init(void) 
-	{
-	RisingEdges = 0;
-	GPIO_PORTE_IS_R &= ~0x01;  // PE0 is edge sensitive
-	GPIO_PORTE_IBE_R &= ~0x01; // PE0 is not both edges
-	GPIO_PORTE_IEV_R |= 0x01;  // PE0 is on rising edge
-	GPIO_PORTE_ICR_R = 0x01;   // Clearing flag 0
-	GPIO_PORTE_IM_R |= 0x01;   // Arming Interrupt on PE0
-	NVIC_PRI0_R = (NVIC_PRI0_R&0xFF00FFFF) | 0x00A00000;
-	NVIC_EN0_R = 0x00000004;   // Enables interrupt 30 in NVIC
-	GPIO_PORTE_DEN_R |= 0x01;
-	EnableInterrupts();        // Clears the I bit
-	}
-	
-	// Handle GPIO Port E interrupts. When Port E interrupt triggers, do what's necessary then increment global variable RisingEdges
-	void GPIOPortE_Handler(void) {
-	GPIO_PORTE_ICR_R = 0x01;    // Acknowledge flag0
-	RisingEdges = RisingEdges + 1;
-	
-
-}
-	
-// Handle SysTick generated interrupts. When timer interrupt triggers, do what's necessary then toggle red and blue LEDs at the same time
-void SysTick_Handler(void) {
-	GPIO_PORTF_DATA_R ^= 0x06; // Toggles red and blue LEDs
-	count = count + 1;
-}
