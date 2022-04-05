@@ -15,11 +15,6 @@
 void portInit(void);
 void DisableInterrupts(void);             // Disable interrupts
 void EnableInterrupts(void);              // Enable interrupts
-void WaitForInterrupt(void);              // Go to low power mode while waiting for the next interrupt
-
-void EdgeCounter_Init(void);              // Initialize edge trigger interrupt for PF0 (SW2) rising edge
-void GPIOPortE_Handler(void);             // Handle GPIO Port F interrupts
-void SysTick_Handler(void);               // Handle SysTick generated interrupts
     
 // ***** 2. Global Declarations Section *****
 
@@ -78,8 +73,7 @@ int main(void){
 		Input = BUTTONS >> 2; // read sensors
 		// Define Next State
 		CS = FSM[CS].Next[Input];
-	}
-        
+	}      
 }
 
 void portInit(void)
