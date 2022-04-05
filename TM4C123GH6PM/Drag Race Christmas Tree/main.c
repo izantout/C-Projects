@@ -18,20 +18,18 @@ void EnableInterrupts(void);              // Enable interrupts
     
 // ***** 2. Global Declarations Section *****
 
-#define BUTTONS (*((volatile unsigned long *)0x40004070))  //accesses PA4(Left)-PA3(Right)-PA2(Reset)
+#define BUTTONS (*((volatile unsigned long *)0x40004030))  //accesses PA3(Left)-PA2(Right)
 #define LIGHTS  (*((volatile unsigned long *)0x400243FC))  //accesses PE7(Red Left) - PE6(Yellow1 Left) - PE5(Yellow2 Left) - PE4(Green Left)
 																											     	       // PE3(Red Right)- PE2(Yellow1 Right)- PE1(Yellow2 Right)- PE0(Green Right)
 unsigned long CS;
 unsigned long Input;
-unsigned long RisingEdges = 0;
-unsigned long count = 0;
 
 // ***** 3. Subroutines Section *****
 
 struct State {
 unsigned long Lights_Output;
 unsigned long Time;                 // 10 ms units
-unsigned long Next[8];              // list of next states
+unsigned long Next[4];              // list of next states
 };
 typedef const struct State STyp;
 #define RedB      0   			        //  Output is Red for Both 
