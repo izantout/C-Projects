@@ -4,19 +4,19 @@
 // Index implementation of a Moore finite state machine to operate a drag race Christmas tree.  
 // Issam Zantout
 
-// ***** 1. Pre-processor Directives Section *****
+// ***** 0. Include Files  *****
 
 #include <stdint.h>                       // C99 data types
 #include "SysTick.h"
 #include "tm4c123gh6pm.h"
 
-// ***** 1.5 Function Prototypes *****
+// ***** 1. Function Prototypes *****
 
 void portInit(void);
 void DisableInterrupts(void);             // Disable interrupts
 void EnableInterrupts(void);              // Enable interrupts
     
-// ***** 2. Global Declarations Section *****
+// ***** 2. Global Variable Declerations *****
 
 #define BUTTONS (*((volatile unsigned long *)0x40004030))  //accesses PA3(Left)-PA2(Right)
 #define LIGHTS  (*((volatile unsigned long *)0x400243FC))  //accesses PE7(Red Left) - PE6(Yellow1 Left) - PE5(Yellow2 Left) - PE4(Green Left)
@@ -24,7 +24,7 @@ void EnableInterrupts(void);              // Enable interrupts
 unsigned long CS;
 unsigned long Input;
 
-// ***** 3. Subroutines Section *****
+// ***** 3. Struct  *****
 
 struct State {
 unsigned long Lights_Output;
@@ -55,8 +55,12 @@ STyp FSM[9] = {
 {0x80, 250 ,{RedB,	RedB,	    RedB,	    RedB}}           // Red Left
 };
 
-int main(void){ 
 
+// ***** 4. main function  *****
+
+int main(void){ 
+	
+	// Before while loop 
 	portInit();            // Initializing Ports and Timer
   CS = RedB;             // Initializing State0
   SysTick_Init();				 // Initializing SysTick
@@ -73,6 +77,7 @@ int main(void){
 		CS = FSM[CS].Next[Input];
 	}      
 }
+// ***** 5. Function Definition  *****
 
 void portInit(void)
 	{
