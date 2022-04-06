@@ -48,7 +48,7 @@ STyp FSM[11] = {
 {0x00, 0x00, 1000, {Wait_Staging,   Wait_Staging,   Wait_Staging,    Yellow1Both}}, 					// Wait for staging
 {0x08, 0x08, 1000, {FasleStartBoth,	FasleStartLeft,	FalseStartRight, Yellow2Both}},           // Countdown Y1
 {0x04, 0x04, 1000, {FasleStartBoth,	FasleStartLeft, FalseStartRight, Go}},     				        // Countdown Y2
-{0x02, 0x02, 50,   {WinBoth,	      WinLeft,	      WinRight,	       Go}},        						// Go state
+{0x02, 0x02, 250,  {WinBoth,	      WinLeft,	      WinRight,	       Go}},        						// Go state
 {0x00, 0x02, 2000, {Wait_Staging,	  Wait_Staging,   Wait_Staging,    Wait_Staging}},          // Win right
 {0x02, 0x00, 2000, {Wait_Staging,  	Wait_Staging,   Wait_Staging,    Wait_Staging}},        	// Win left
 {0x02, 0x02, 2000, {Wait_Staging,	  Wait_Staging,   Wait_Staging,	   Wait_Staging}},        	// Win Both
