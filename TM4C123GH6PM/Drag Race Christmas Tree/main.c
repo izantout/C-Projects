@@ -45,8 +45,8 @@ STyp FSM[9] = {
 {0x04, 0x04, 5000 ,{RedB,	RedLeft,	RedRight,	Yellow2B}},      // Yellow 1 Both
 {0x08, 0x08, 5000 ,{RedB,	RedLeft,	RedRight,	GreenB}},        // Yellow 2 Both
 {0x10, 0x10, 500  ,{WinB,	WinLeft,	WinRight,	GreenB}},        // Green Both
-{0x00, 0x10, 10000,{RedB,	RedB,	    RedB,	    RedB}},          // Win Right
-{0x10, 0x00, 10000,{RedB,	RedB,	    RedB,	    RedB}},          // Win Left
+{0x10, 0x00, 10000,{RedB,	RedB,	    RedB,	    RedB}},          // Win Right
+{0x00, 0x10, 10000,{RedB,	RedB,	    RedB,	    RedB}},          // Win Left
 {0x10, 0x10, 5000 ,{RedB,	RedB,	    RedB,	    RedB}},          // Win Both
 {0x00, 0x02, 2500 ,{RedB,	RedB,     RedB,	    RedB}},          // Red Right
 {0x02, 0x00, 2500 ,{RedB,	RedB,	    RedB,	    RedB}}           // Red Left
@@ -64,7 +64,7 @@ int main(void){
 	
 	// Before while loop 
 	portInit();            // Initializing Ports and Timer
-  CS = Yellow1B;             // Initializing State0
+  CS = RedB;             // Initializing State0
   SysTick_Init();				 // Initializing SysTick
 
 
