@@ -44,17 +44,17 @@ typedef const struct State STyp;
 
 
 STyp FSM[11] = {
-{0xFF, 0xFF, 2000, {Wait_Staging, Wait_Staging, Wait_Staging, Wait_Staging}}, 				 //Initialize
-{0x00, 0x00, 1000, {Wait_Staging, Wait_Staging, Wait_Staging, Yellow1Both}}, 					 //Wait for staging
-{0x08, 0x08, 1000, {FasleStartBoth,	FasleStartLeft,	FalseStartRight, Yellow2Both}},    // Countdown Y1
-{0x04, 0x04, 1000, {FasleStartBoth,	FasleStartLeft,	FalseStartRight, Go}},     				 // Countdown Y2
-{0x02, 0x02, 50,   {WinBoth,	WinLeft,	WinRight,	Go}},        												 // Go state
-{0x00, 0x02, 2000, {Wait_Staging,	Wait_Staging, Wait_Staging, Wait_Staging}},          // Win right
-{0x02, 0x00, 2000, {Wait_Staging,	Wait_Staging, Wait_Staging, Wait_Staging}},        	 // Win left
-{0x02, 0x02, 2000, {Wait_Staging,	Wait_Staging, Wait_Staging,	Wait_Staging}},        	 // Win Both
-{0x00, 0x10, 2000, {Wait_Staging,	Wait_Staging, Wait_Staging, Wait_Staging}},          // False start right
-{0x10, 0x00, 2000, {Wait_Staging,	Wait_Staging,	Wait_Staging,	Wait_Staging}},          // False start left
-{0x10, 0x10, 2000, {Wait_Staging,	Wait_Staging,	Wait_Staging,	Wait_Staging}}           // False start both
+{0xFF, 0xFF, 2000, {Wait_Staging,   Wait_Staging,   Wait_Staging,    Wait_Staging}}, 				  // Initialize
+{0x00, 0x00, 1000, {Wait_Staging,   Wait_Staging,   Wait_Staging,    Yellow1Both}}, 					// Wait for staging
+{0x08, 0x08, 1000, {FasleStartBoth,	FasleStartLeft,	FalseStartRight, Yellow2Both}},           // Countdown Y1
+{0x04, 0x04, 1000, {FasleStartBoth,	FasleStartLeft, FalseStartRight, Go}},     				        // Countdown Y2
+{0x02, 0x02, 50,   {WinBoth,	      WinLeft,	      WinRight,	       Go}},        						// Go state
+{0x00, 0x02, 2000, {Wait_Staging,	  Wait_Staging,   Wait_Staging,    Wait_Staging}},          // Win right
+{0x02, 0x00, 2000, {Wait_Staging,  	Wait_Staging,   Wait_Staging,    Wait_Staging}},        	// Win left
+{0x02, 0x02, 2000, {Wait_Staging,	  Wait_Staging,   Wait_Staging,	   Wait_Staging}},        	// Win Both
+{0x00, 0x10, 2000, {Wait_Staging,	  Wait_Staging,   Wait_Staging,    Wait_Staging}},          // False start right
+{0x10, 0x00, 2000, {Wait_Staging,	  Wait_Staging,	  Wait_Staging,	   Wait_Staging}},          // False start left
+{0x10, 0x10, 2000, {Wait_Staging,	  Wait_Staging,	  Wait_Staging,	   Wait_Staging}}           // False start both
 };
 
 
@@ -108,7 +108,7 @@ void portInit(void)
   GPIO_PORTF_CR_R = 0x1F;           // allow changes to PF4-0       
   GPIO_PORTF_AMSEL_R = 0x00;        // 3) disable analog function
   GPIO_PORTF_PCTL_R = 0x00000000;   // 4) GPIO clear bit PCTL  
-  GPIO_PORTF_DIR_R = 0x1E;          // 5) PF4,PF0 input, PF3,PF2,PF1 output   
+  GPIO_PORTF_DIR_R = 0x1E;          // 5) PF4-PF0 Output   
   GPIO_PORTF_AFSEL_R = 0x00;        // 6) no alternate function
   GPIO_PORTF_PUR_R = 0x1E;          // enable pullup resistors on PF4-PF0       
   GPIO_PORTF_DEN_R = 0x1E;          // 7) enable digital pins PF4-PF0 
