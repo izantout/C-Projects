@@ -2,7 +2,7 @@
 // DragRace.c for Project 2
 // Runs on TM4C123GH6PM
 // Index implementation of a Moore finite state machine to operate a drag race Christmas tree.  
-// Nic Moy
+// Issam Zantout
 
 // ***** 0. Include Files  *****
 
