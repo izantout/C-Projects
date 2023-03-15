@@ -44,6 +44,9 @@ unsigned char RECIEVED;
 char test;
 unsigned int i;
 unsigned int INTERRUPT;
+char string[255];
+char string2[255];
+char ack[255] = "I received: ";
 
 void PortF_Init();
 extern void DisableInterrupts(void);
@@ -163,6 +166,22 @@ int main(void){
 		
 		// If mode 3 is chosen
 		if(MENU_CHOICE == '3'){
+			LEDS = G; // starts with Green LED when in mode 3
+			UART_OutString("Enter a message: "); // prompts user to enter string from PC
+			Enter();
+			UART_InString(string, 254); // receives message from PC and stores it in string in MCU1
+			Enter();
+			UART1_OutChar('3');
+			UART1_OutString(string); //sends the string to MCU2
+			Enter1();
+			UART_OutString("Sent string to MCU2");
+
+			UART_OutString("Waiting for MCU2 send"); Enter();
+			UART1_InString(string,50); //gets "I RECIEVED" string from MCU2
+			UART_OutString("GOT RECIEVE MESSAGE "); Enter();
+			UART_OutString(string); Enter(); //outputs RECIEVE nessage to PC
+			UART_OutString("GOT ACKNOWLEDGEMENT "); Enter();
+			LEDS = D;											//sets LED to dark
 			
 		}
 	}
