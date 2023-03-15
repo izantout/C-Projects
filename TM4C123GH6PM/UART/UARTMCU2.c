@@ -7,8 +7,8 @@
 #include <stdint.h>
 #include "PLL.h"
 #include "UART.h"
-//#include "Nokia5110.h"
-// color definitions 
+#include "Nokia5110.h"
+ 
 #define R 0x02
 #define B 0x04
 #define G 0x08
@@ -22,6 +22,9 @@ unsigned char COLOR;
 unsigned char MENU_CHOICE;
 unsigned int i;
 unsigned int INTERRUPT;
+char string[255];  
+char ack[255] = "I received: "; 
+
 // Defines what Bits control LED lights 
 #define	LEDS       (*((volatile unsigned long *)0x40025038))
 	
@@ -34,14 +37,14 @@ void Mode3();
 
 
 int main(void){
-    DisableInterrupts();
+	DisableInterrupts();
   PLL_Init();
-    PortF_Init();
+	PortF_Init();
 	UART_Init();
   UART1_Init();
-    //Nokia5110_Init(); 
-    EnableInterrupts();
-    //Nokia5110_Clear();
+	Nokia5110_Init(); 
+	EnableInterrupts();
+	Nokia5110_ClearBuffer();
   while(1){
 		MENU_CHOICE = UART1_InChar();
 		if(MENU_CHOICE == '2' || MENU_CHOICE == '3'){
@@ -71,7 +74,22 @@ int main(void){
 	}
 
     void Mode3(){
-        int r = 0;
+			EnableInterrupts();
+			Nokia5110_Clear();
+			UART_OutString("Cleared Nokia5110 "); Enter();
+			LEDS = D;
+			UART_OutString("Dark mode activated "); Enter();
+			Nokia5110_SetCursor(1, 1);
+			UART1_InString(string, 50); Enter(); //Receives Input from MCU1
+			UART_OutString("Input received "); Enter(); Enter();
+			UART_OutString(string); Enter(); Enter();
+			Nokia5110_OutString(string);
+			UART_OutString("LOOK AT THE NOKIA "); Enter();
+			while (MENU_CHOICE == '3') {}
+			DisableInterrupts();
+			UART_OutString("No more Interrupts "); Enter();
+			Nokia5110_Clear();
+			UART_OutString("NO MORE NOKIA "); Enter();
 
     }
 
@@ -131,9 +149,17 @@ void GPIOPortF_Handler(void){
 				default:
 					break;
 			}
+		}
+		if(MENU_CHOICE == '3') {
+			UART1_OutString("I recieved: "); // sends 2nd message to MCU1
+			UART_OutString("I recieved sent to MCU1"); Enter();
+			UART1_OutString(string); Enter1();//Sends back 1st message to MCU1
+			UART_OutString("Confirmation sent to MCU1"); Enter();
+			MENU_CHOICE = '0';
+			INTERRUPT = 0;
+		}
 		// Clear Switch 1 Interrupt status
 		GPIO_PORTF_ICR_R = 0x10;
-		}
 	}
 	
 	// If switch 2 is pressed
