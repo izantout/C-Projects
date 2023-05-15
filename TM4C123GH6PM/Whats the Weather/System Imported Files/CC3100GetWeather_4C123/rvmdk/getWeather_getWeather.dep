@@ -1,0 +1,333 @@
+Dependencies for Project 'getWeather', Target 'getWeather': (DO NOT MODIFY !)
+CompilerVersion: 6190000::V6.19::ARMCLANG
+F (..\cc3100\platform\ek-tm4c123gxl\board.c)(0x64504830)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/board.o -MD)
+I (..\cc3100\simplelink\include\simplelink.h)(0x64504831)
+I (..\cc3100\platform\ek-tm4c123gxl\user.h)(0x64504830)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
+I (..\cc3100\platform\ek-tm4c123gxl\board.h)(0x64504830)
+I (..\cc3100\platform\ek-tm4c123gxl\spi.h)(0x64504830)
+I (..\cc3100\simplelink\include\..\source\nonos.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\objInclusion.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\trace.h)(0x64504831)
+I (..\cc3100\simplelink\include\fs.h)(0x64504831)
+I (..\cc3100\simplelink\include\socket.h)(0x64504831)
+I (..\cc3100\simplelink\include\netapp.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan.h)(0x64504831)
+I (..\cc3100\simplelink\include\device.h)(0x64504831)
+I (..\cc3100\simplelink\include\netcfg.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan_rx_filters.h)(0x64504831)
+I (..\cc3100\..\inc\tm4c123gh6pm.h)(0x6450483F)
+I (..\inc\hw_memmap.h)(0x6450483E)
+I (..\inc\hw_ssi.h)(0x6450483E)
+I (..\inc\hw_types.h)(0x6450483F)
+I (..\driverlib\ssi.h)(0x6450483B)
+I (..\driverlib\rom.h)(0x6450483B)
+I (..\driverlib\gpio.h)(0x6450483A)
+I (..\driverlib\sysctl.h)(0x6450483C)
+I (..\driverlib\fpu.h)(0x6450483A)
+I (..\driverlib\uart.h)(0x6450483C)
+F (.\Nokia5110.c)(0x64504833)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/nokia5110.o -MD)
+I (Nokia5110.h)(0x64504833)
+I (..\inc\tm4c123gh6pm.h)(0x6450483F)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x645046AE)
+F (.\LED.c)(0x64504833)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/led.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x645046AE)
+I (..\inc\tm4c123gh6pm.h)(0x6450483F)
+F (..\cc3100\simplelink\source\device.c)(0x64504831)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/device.o -MD)
+I (..\cc3100\simplelink\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\simplelink.h)(0x64504831)
+I (..\cc3100\platform\ek-tm4c123gxl\user.h)(0x64504830)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
+I (..\cc3100\platform\ek-tm4c123gxl\board.h)(0x64504830)
+I (..\cc3100\platform\ek-tm4c123gxl\spi.h)(0x64504830)
+I (..\cc3100\simplelink\include\..\source\nonos.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\objInclusion.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\trace.h)(0x64504831)
+I (..\cc3100\simplelink\include\fs.h)(0x64504831)
+I (..\cc3100\simplelink\include\socket.h)(0x64504831)
+I (..\cc3100\simplelink\include\netapp.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan.h)(0x64504831)
+I (..\cc3100\simplelink\include\device.h)(0x64504831)
+I (..\cc3100\simplelink\include\netcfg.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan_rx_filters.h)(0x64504831)
+I (..\cc3100\simplelink\source\protocol.h)(0x64504831)
+I (..\cc3100\simplelink\source\flowcont.h)(0x64504831)
+I (..\cc3100\simplelink\source\driver.h)(0x64504831)
+F (..\cc3100\simplelink\source\driver.c)(0x64504831)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/driver.o -MD)
+I (..\cc3100\simplelink\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\simplelink.h)(0x64504831)
+I (..\cc3100\platform\ek-tm4c123gxl\user.h)(0x64504830)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
+I (..\cc3100\platform\ek-tm4c123gxl\board.h)(0x64504830)
+I (..\cc3100\platform\ek-tm4c123gxl\spi.h)(0x64504830)
+I (..\cc3100\simplelink\include\..\source\nonos.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\objInclusion.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\trace.h)(0x64504831)
+I (..\cc3100\simplelink\include\fs.h)(0x64504831)
+I (..\cc3100\simplelink\include\socket.h)(0x64504831)
+I (..\cc3100\simplelink\include\netapp.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan.h)(0x64504831)
+I (..\cc3100\simplelink\include\device.h)(0x64504831)
+I (..\cc3100\simplelink\include\netcfg.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan_rx_filters.h)(0x64504831)
+I (..\cc3100\simplelink\source\protocol.h)(0x64504831)
+I (..\cc3100\simplelink\source\driver.h)(0x64504831)
+I (..\cc3100\simplelink\source\flowcont.h)(0x64504831)
+F (..\cc3100\simplelink\source\flowcont.c)(0x64504831)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/flowcont.o -MD)
+I (..\cc3100\simplelink\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\simplelink.h)(0x64504831)
+I (..\cc3100\platform\ek-tm4c123gxl\user.h)(0x64504830)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
+I (..\cc3100\platform\ek-tm4c123gxl\board.h)(0x64504830)
+I (..\cc3100\platform\ek-tm4c123gxl\spi.h)(0x64504830)
+I (..\cc3100\simplelink\include\..\source\nonos.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\objInclusion.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\trace.h)(0x64504831)
+I (..\cc3100\simplelink\include\fs.h)(0x64504831)
+I (..\cc3100\simplelink\include\socket.h)(0x64504831)
+I (..\cc3100\simplelink\include\netapp.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan.h)(0x64504831)
+I (..\cc3100\simplelink\include\device.h)(0x64504831)
+I (..\cc3100\simplelink\include\netcfg.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan_rx_filters.h)(0x64504831)
+I (..\cc3100\simplelink\source\protocol.h)(0x64504831)
+I (..\cc3100\simplelink\source\driver.h)(0x64504831)
+I (..\cc3100\simplelink\source\flowcont.h)(0x64504831)
+F (..\cc3100\simplelink\source\fs.c)(0x64504831)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/fs.o -MD)
+I (..\cc3100\simplelink\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\simplelink.h)(0x64504831)
+I (..\cc3100\platform\ek-tm4c123gxl\user.h)(0x64504830)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
+I (..\cc3100\platform\ek-tm4c123gxl\board.h)(0x64504830)
+I (..\cc3100\platform\ek-tm4c123gxl\spi.h)(0x64504830)
+I (..\cc3100\simplelink\include\..\source\nonos.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\objInclusion.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\trace.h)(0x64504831)
+I (..\cc3100\simplelink\include\fs.h)(0x64504831)
+I (..\cc3100\simplelink\include\socket.h)(0x64504831)
+I (..\cc3100\simplelink\include\netapp.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan.h)(0x64504831)
+I (..\cc3100\simplelink\include\device.h)(0x64504831)
+I (..\cc3100\simplelink\include\netcfg.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan_rx_filters.h)(0x64504831)
+I (..\cc3100\simplelink\source\protocol.h)(0x64504831)
+I (..\cc3100\simplelink\source\driver.h)(0x64504831)
+F (..\cc3100\simplelink\source\netapp.c)(0x64504831)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/netapp.o -MD)
+I (..\cc3100\simplelink\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\simplelink.h)(0x64504831)
+I (..\cc3100\platform\ek-tm4c123gxl\user.h)(0x64504830)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
+I (..\cc3100\platform\ek-tm4c123gxl\board.h)(0x64504830)
+I (..\cc3100\platform\ek-tm4c123gxl\spi.h)(0x64504830)
+I (..\cc3100\simplelink\include\..\source\nonos.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\objInclusion.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\trace.h)(0x64504831)
+I (..\cc3100\simplelink\include\fs.h)(0x64504831)
+I (..\cc3100\simplelink\include\socket.h)(0x64504831)
+I (..\cc3100\simplelink\include\netapp.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan.h)(0x64504831)
+I (..\cc3100\simplelink\include\device.h)(0x64504831)
+I (..\cc3100\simplelink\include\netcfg.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan_rx_filters.h)(0x64504831)
+I (..\cc3100\simplelink\source\protocol.h)(0x64504831)
+I (..\cc3100\simplelink\source\driver.h)(0x64504831)
+F (..\cc3100\simplelink\source\netcfg.c)(0x64504831)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/netcfg.o -MD)
+I (..\cc3100\simplelink\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\simplelink.h)(0x64504831)
+I (..\cc3100\platform\ek-tm4c123gxl\user.h)(0x64504830)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
+I (..\cc3100\platform\ek-tm4c123gxl\board.h)(0x64504830)
+I (..\cc3100\platform\ek-tm4c123gxl\spi.h)(0x64504830)
+I (..\cc3100\simplelink\include\..\source\nonos.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\objInclusion.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\trace.h)(0x64504831)
+I (..\cc3100\simplelink\include\fs.h)(0x64504831)
+I (..\cc3100\simplelink\include\socket.h)(0x64504831)
+I (..\cc3100\simplelink\include\netapp.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan.h)(0x64504831)
+I (..\cc3100\simplelink\include\device.h)(0x64504831)
+I (..\cc3100\simplelink\include\netcfg.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan_rx_filters.h)(0x64504831)
+I (..\cc3100\simplelink\source\protocol.h)(0x64504831)
+I (..\cc3100\simplelink\source\driver.h)(0x64504831)
+F (..\cc3100\simplelink\source\nonos.c)(0x64504831)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/nonos.o -MD)
+I (..\cc3100\simplelink\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\simplelink.h)(0x64504831)
+I (..\cc3100\platform\ek-tm4c123gxl\user.h)(0x64504830)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
+I (..\cc3100\platform\ek-tm4c123gxl\board.h)(0x64504830)
+I (..\cc3100\platform\ek-tm4c123gxl\spi.h)(0x64504830)
+I (..\cc3100\simplelink\include\..\source\nonos.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\objInclusion.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\trace.h)(0x64504831)
+I (..\cc3100\simplelink\include\fs.h)(0x64504831)
+I (..\cc3100\simplelink\include\socket.h)(0x64504831)
+I (..\cc3100\simplelink\include\netapp.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan.h)(0x64504831)
+I (..\cc3100\simplelink\include\device.h)(0x64504831)
+I (..\cc3100\simplelink\include\netcfg.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan_rx_filters.h)(0x64504831)
+I (..\cc3100\simplelink\source\protocol.h)(0x64504831)
+I (..\cc3100\simplelink\source\driver.h)(0x64504831)
+I (..\cc3100\simplelink\source\nonos.h)(0x64504831)
+F (..\cc3100\simplelink\source\socket.c)(0x64504831)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/socket.o -MD)
+I (..\cc3100\simplelink\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\simplelink.h)(0x64504831)
+I (..\cc3100\platform\ek-tm4c123gxl\user.h)(0x64504830)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
+I (..\cc3100\platform\ek-tm4c123gxl\board.h)(0x64504830)
+I (..\cc3100\platform\ek-tm4c123gxl\spi.h)(0x64504830)
+I (..\cc3100\simplelink\include\..\source\nonos.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\objInclusion.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\trace.h)(0x64504831)
+I (..\cc3100\simplelink\include\fs.h)(0x64504831)
+I (..\cc3100\simplelink\include\socket.h)(0x64504831)
+I (..\cc3100\simplelink\include\netapp.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan.h)(0x64504831)
+I (..\cc3100\simplelink\include\device.h)(0x64504831)
+I (..\cc3100\simplelink\include\netcfg.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan_rx_filters.h)(0x64504831)
+I (..\cc3100\simplelink\source\protocol.h)(0x64504831)
+I (..\cc3100\simplelink\source\driver.h)(0x64504831)
+F (..\cc3100\simplelink\source\spawn.c)(0x64504832)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/spawn.o -MD)
+I (..\cc3100\simplelink\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\simplelink.h)(0x64504831)
+I (..\cc3100\platform\ek-tm4c123gxl\user.h)(0x64504830)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
+I (..\cc3100\platform\ek-tm4c123gxl\board.h)(0x64504830)
+I (..\cc3100\platform\ek-tm4c123gxl\spi.h)(0x64504830)
+I (..\cc3100\simplelink\include\..\source\nonos.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\objInclusion.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\trace.h)(0x64504831)
+I (..\cc3100\simplelink\include\fs.h)(0x64504831)
+I (..\cc3100\simplelink\include\socket.h)(0x64504831)
+I (..\cc3100\simplelink\include\netapp.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan.h)(0x64504831)
+I (..\cc3100\simplelink\include\device.h)(0x64504831)
+I (..\cc3100\simplelink\include\netcfg.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan_rx_filters.h)(0x64504831)
+F (..\cc3100\platform\ek-tm4c123gxl\spi.c)(0x64504830)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/spi.o -MD)
+I (..\cc3100\simplelink\include\simplelink.h)(0x64504831)
+I (..\cc3100\platform\ek-tm4c123gxl\user.h)(0x64504830)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
+I (..\cc3100\platform\ek-tm4c123gxl\board.h)(0x64504830)
+I (..\cc3100\platform\ek-tm4c123gxl\spi.h)(0x64504830)
+I (..\cc3100\simplelink\include\..\source\nonos.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\objInclusion.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\trace.h)(0x64504831)
+I (..\cc3100\simplelink\include\fs.h)(0x64504831)
+I (..\cc3100\simplelink\include\socket.h)(0x64504831)
+I (..\cc3100\simplelink\include\netapp.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan.h)(0x64504831)
+I (..\cc3100\simplelink\include\device.h)(0x64504831)
+I (..\cc3100\simplelink\include\netcfg.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan_rx_filters.h)(0x64504831)
+I (..\inc\hw_memmap.h)(0x6450483E)
+I (..\inc\hw_ssi.h)(0x6450483E)
+I (..\inc\hw_gpio.h)(0x6450483E)
+I (..\inc\hw_types.h)(0x6450483F)
+I (..\driverlib\pin_map.h)(0x6450483B)
+I (..\inc\hw_ints.h)(0x6450483E)
+I (..\driverlib\ssi.h)(0x6450483B)
+I (..\driverlib\rom.h)(0x6450483B)
+I (..\driverlib\gpio.h)(0x6450483A)
+I (..\driverlib\sysctl.h)(0x6450483C)
+I (..\driverlib\interrupt.h)(0x6450483A)
+F (.\startup_rvmdk.S)(0x64504834)(--target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4 -D__MICROLIB -D__EVAL-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION=538 -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./rvmdk/startup_rvmdk.o)
+F (..\cc3100\platform\ek-tm4c123gxl\uart.c)(0x64504830)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/uart.o -MD)
+F (..\cc3100\simplelink\source\wlan.c)(0x64504832)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/wlan.o -MD)
+I (..\cc3100\simplelink\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\simplelink.h)(0x64504831)
+I (..\cc3100\platform\ek-tm4c123gxl\user.h)(0x64504830)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
+I (..\cc3100\platform\ek-tm4c123gxl\board.h)(0x64504830)
+I (..\cc3100\platform\ek-tm4c123gxl\spi.h)(0x64504830)
+I (..\cc3100\simplelink\include\..\source\nonos.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\objInclusion.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\trace.h)(0x64504831)
+I (..\cc3100\simplelink\include\fs.h)(0x64504831)
+I (..\cc3100\simplelink\include\socket.h)(0x64504831)
+I (..\cc3100\simplelink\include\netapp.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan.h)(0x64504831)
+I (..\cc3100\simplelink\include\device.h)(0x64504831)
+I (..\cc3100\simplelink\include\netcfg.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan_rx_filters.h)(0x64504831)
+I (..\cc3100\simplelink\source\protocol.h)(0x64504831)
+I (..\cc3100\simplelink\source\driver.h)(0x64504831)
+F (..\utils\uartstdio.c)(0x64504841)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/uartstdio.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63892A08)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x645046AE)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63892A08)
+I (..\inc\hw_ints.h)(0x6450483E)
+I (..\inc\hw_memmap.h)(0x6450483E)
+I (..\inc\hw_types.h)(0x6450483F)
+I (..\inc\hw_uart.h)(0x6450483F)
+I (..\driverlib\debug.h)(0x64504839)
+I (..\driverlib\interrupt.h)(0x6450483A)
+I (..\driverlib\rom.h)(0x6450483B)
+I (..\driverlib\rom_map.h)(0x6450483B)
+I (..\driverlib\sysctl.h)(0x6450483C)
+I (..\driverlib\uart.h)(0x6450483C)
+I (..\utils\uartstdio.h)(0x64504841)
+F (..\utils\ustdlib.c)(0x64504841)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/ustdlib.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x645046AE)
+I (..\driverlib\debug.h)(0x64504839)
+I (..\utils\ustdlib.h)(0x64504841)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63892A08)
+I (C:\Keil_v5\ARM\ARMCLANG\include\time.h)(0x63892A08)
+F (.\mainNokia5110.c)(0x6452DFE8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/mainnokia5110.o -MD)
+I (..\cc3100\simplelink\include\simplelink.h)(0x64504831)
+I (..\cc3100\platform\ek-tm4c123gxl\user.h)(0x64504830)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
+I (..\cc3100\platform\ek-tm4c123gxl\board.h)(0x64504830)
+I (..\cc3100\platform\ek-tm4c123gxl\spi.h)(0x64504830)
+I (..\cc3100\simplelink\include\..\source\nonos.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\objInclusion.h)(0x64504831)
+I (..\cc3100\simplelink\include\..\source\datatypes.h)(0x64504831)
+I (..\cc3100\simplelink\include\trace.h)(0x64504831)
+I (..\cc3100\simplelink\include\fs.h)(0x64504831)
+I (..\cc3100\simplelink\include\socket.h)(0x64504831)
+I (..\cc3100\simplelink\include\netapp.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan.h)(0x64504831)
+I (..\cc3100\simplelink\include\device.h)(0x64504831)
+I (..\cc3100\simplelink\include\netcfg.h)(0x64504831)
+I (..\cc3100\simplelink\include\wlan_rx_filters.h)(0x64504831)
+I (..\inc\hw_memmap.h)(0x6450483E)
+I (..\inc\hw_types.h)(0x6450483F)
+I (..\driverlib\debug.h)(0x64504839)
+I (..\driverlib\fpu.h)(0x6450483A)
+I (..\driverlib\gpio.h)(0x6450483A)
+I (..\driverlib\pin_map.h)(0x6450483B)
+I (..\driverlib\rom.h)(0x6450483B)
+I (..\driverlib\sysctl.h)(0x6450483C)
+I (..\driverlib\uart.h)(0x6450483C)
+I (..\utils\uartstdio.h)(0x64504841)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63892A08)
+I (..\utils\cmdline.h)(0x6450483F)
+I (application_commands.h)(0x64504832)
+I (ST7735.h)(0x64504C15)
+I (LED.h)(0x64504833)
+I (Nokia5110.h)(0x64504833)
+I (C:\Keil_v5\ARM\ARMCLANG\include\time.h)(0x63892A08)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63892A08)
+F (.\ST7735.c)(0x64504C7B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -I ../ -I ../../../.. -I ../cc3100 -I ../cc3100/platform/ek-tm4c123gxl -I ../cc3100/simplelink/include -I ../cc3100/simplelink/source-I./RTE/_getWeather-IC:/Users/issam/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/issam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_ -Drvmdk -DPART_TM4C123GH6PM -D_POSIX_SOURCE -DUART_BUFFERED -DTARGET_IS_TM4C123_RB1-o ./rvmdk/st7735.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63892A08)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63892A08)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x645046AE)
+I (ST7735.h)(0x64504C15)
+I (..\inc\tm4c123gh6pm.h)(0x6450483F)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63892A08)
+F (..\driverlib\rvmdk\driverlib.lib)(0x6450483D)()
+F (.\readme.txt)(0x64504833)()
